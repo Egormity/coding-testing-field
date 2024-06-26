@@ -953,40 +953,52 @@
 // console.log(four(plus(three())));
 
 // Human readable duration format -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-function formatDuration (secs) {
-    if (secs === 0) return 'now';
+// function formatDuration (secs) {
+//     if (secs === 0) return 'now';
 
-    const s = 1;
-    const m = s * 60;
-    const h = m * 60;
-    const d = h * 24;
-    const y = d * 365;
+//     const s = 1;
+//     const m = s * 60;
+//     const h = m * 60;
+//     const d = h * 24;
+//     const y = d * 365;
 
-    const years = Math.floor(secs / y);
-    secs -= years * y;
+//     const years = Math.floor(secs / y);
+//     secs -= years * y;
 
-    const days = Math.floor(secs / d);
-    secs -= days * d;
+//     const days = Math.floor(secs / d);
+//     secs -= days * d;
 
-    const hours = Math.floor(secs / h);
-    secs -= hours * h;
+//     const hours = Math.floor(secs / h);
+//     secs -= hours * h;
 
-    const minutes = Math.floor(secs / m);
-    secs -= minutes * m;
-    
-    const seconds = secs;
+//     const minutes = Math.floor(secs / m);
+//     secs -= minutes * m;
 
-    const format = (el, type, arr) => el === 0 ? '' : el === 1 ? `${el} ${type}` : `${el} ${type}s`;
-    const separate = arr => arr.map((el, i) => arr[i + 1] ? `${el}${!(i === arr.length - 2) ? ', ' : ' and '}` : el).join('');
-    const arr = [format(years, 'year'), format(days, 'day'), format(hours, 'hour'), format(minutes, 'minute'), format(seconds, 'second')].filter(el => el !== '')
-    return separate(arr)
-}
-console.log(formatDuration(6728400));
-console.log(formatDuration(120));
+//     const seconds = secs;
 
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//     const format = (el, type, arr) => el === 0 ? '' : el === 1 ? `${el} ${type}` : `${el} ${type}s`;
+//     const separate = arr => arr.map((el, i) => arr[i + 1] ? `${el}${!(i === arr.length - 2) ? ', ' : ' and '}` : el).join('');
+//     const arr = [format(years, 'year'), format(days, 'day'), format(hours, 'hour'), format(minutes, 'minute'), format(seconds, 'second')].filter(el => el !== '')
+//     return separate(arr)
+// }
+// console.log(formatDuration(6728400));
+// console.log(formatDuration(120));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const humanReadable = secs => {
+//   const second = 1;
+//   const minute = second * 60;
+//   const hour = minute * 60;
+
+//   const h = Math.floor(secs / hour);
+//   const m = Math.floor((secs - h * hour) / minute);
+//   const s = secs - m * minute - h * hour;
+
+//   const readible = value => (value + '').padStart(2, 0);
+
+//   return `${readible(h)}:${readible(m)}:${readible(s)}`;
+// };
+// console.log(humanReadable(10000));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
