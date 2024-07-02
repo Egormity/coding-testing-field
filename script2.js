@@ -21,46 +21,61 @@
 // console.log(solve('CODde'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-function encrypt(text, n) {
-  const e = t =>
-    t
-      .split('')
-      .filter((n, i) => i % 2 === 1)
-      .join('') +
-    t
-      .split('')
-      .filter((n, i) => i % 2 === 0)
-      .join('');
-  let result = text;
-  for (let i = 0; i < n; i++) {
-    result = e(result);
-  }
-  return result;
-}
+// function encrypt(text, n) {
+//   const e = t =>
+//     t
+//       .split('')
+//       .filter((n, i) => i % 2 === 1)
+//       .join('') +
+//     t
+//       .split('')
+//       .filter((n, i) => i % 2 === 0)
+//       .join('');
+//   let result = text;
+//   for (let i = 0; i < n; i++) {
+//     result = e(result);
+//   }
+//   return result;
+// }
 
-function decrypt(encryptedText, n) {
-  const e = t => {
-    let res = '';
-    let cur = t.length % 2 === 0 ? Math.ceil(t.length / 2) : Math.ceil(t.length / 2) - 1;
-    let def = true;
-    for (let i = 0; i < t.length; i++) {
-      res += t[cur];
-      def ? (cur -= Math.floor(t.length / 2)) : (cur += Math.floor(t.length / 2) + 1);
-      def = !def;
-    }
-    return res;
-  };
-  let result = encryptedText;
-  for (let i = 0; i < n; i++) {
-    result = e(result);
-  }
-  return result;
-}
+// function decrypt(encryptedText, n) {
+//   const e = t => {
+//     let res = '';
+//     let cur = t.length % 2 === 0 ? Math.ceil(t.length / 2) : Math.ceil(t.length / 2) - 1;
+//     let def = true;
+//     for (let i = 0; i < t.length; i++) {
+//       res += t[cur];
+//       def ? (cur -= Math.floor(t.length / 2)) : (cur += Math.floor(t.length / 2) + 1);
+//       def = !def;
+//     }
+//     return res;
+//   };
+//   let result = encryptedText;
+//   for (let i = 0; i < n; i++) {
+//     result = e(result);
+//   }
+//   return result;
+// }
 
-console.log(encrypt('0123456', 1));
-console.log(decrypt(encrypt('0123456', 1), 1));
+// console.log(encrypt('0123456', 1));
+// console.log(decrypt(encrypt('0123456', 1), 1));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const filterFunc = (dir1 = '', dir2 = '') => {
+  //   console.log(dir1, dir2);
+  if (dir2 === '') return true;
+  if (dir1.toLowerCase() === 'north' && dir2.toLowerCase() === 'south') return true;
+  if (dir1.toLowerCase() === 'south' && dir2.toLowerCase() === 'north') return true;
+  if (dir1.toLowerCase() === 'east' && dir2.toLowerCase() === 'west') return true;
+  if (dir1.toLowerCase() === 'west' && dir2.toLowerCase() === 'east') return true;
+  return false;
+};
+
+const dirReduc = arr =>
+  arr.filter((dir, i, dirs) =>
+    filterFunc(dir, dirs[i - 1]) ? !filterFunc(dir, dirs[i + 1]) : false
+  );
+console.log(dirReduc(['NORTH', 'SOUTH', 'EAST', 'WEST', 'EAST', 'WEST', 'west']));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
