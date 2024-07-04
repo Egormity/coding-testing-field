@@ -61,21 +61,6 @@
 // console.log(decrypt(encrypt('0123456', 1), 1));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-const filterFunc = (dir1 = '', dir2 = '') => {
-  //   console.log(dir1, dir2);
-  if (dir2 === '') return true;
-  if (dir1.toLowerCase() === 'north' && dir2.toLowerCase() === 'south') return true;
-  if (dir1.toLowerCase() === 'south' && dir2.toLowerCase() === 'north') return true;
-  if (dir1.toLowerCase() === 'east' && dir2.toLowerCase() === 'west') return true;
-  if (dir1.toLowerCase() === 'west' && dir2.toLowerCase() === 'east') return true;
-  return false;
-};
-
-const dirReduc = arr =>
-  arr.filter((dir, i, dirs) =>
-    filterFunc(dir, dirs[i - 1]) ? !filterFunc(dir, dirs[i + 1]) : false
-  );
-console.log(dirReduc(['NORTH', 'SOUTH', 'EAST', 'WEST', 'EAST', 'WEST', 'west']));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
