@@ -110,38 +110,93 @@
 // console.log(solution([-10, -9, -8, -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]));
 
 // Next bigger number with the same digits -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-var results = [];
-function permute(arr, memo) {
-  var cur;
-  var memo = memo || [];
+// var results = [];
+// function permute(arr, memo) {
+//   var cur;
+//   var memo = memo || [];
 
-  for (var i = 0; i < arr.length; i++) {
-    cur = arr.splice(i, 1);
+//   for (var i = 0; i < arr.length; i++) {
+//     cur = arr.splice(i, 1);
 
-    if (arr.length === 0) {
-      results.push(+memo.concat(cur).join(''));
-    }
+//     if (arr.length === 0) {
+//       results.push(+memo.concat(cur).join(''));
+//     }
 
-    permute(arr.slice(), memo.concat(cur));
-    arr.splice(i, 0, cur[0]);
-  }
-  return results;
-}
+//     permute(arr.slice(), memo.concat(cur));
+//     arr.splice(i, 0, cur[0]);
+//   }
+//   return results;
+// }
 
-const nextBigger = n =>
-  permute((n + '').split(''))
-    .sort((a, b) => a - b)
-    .find(el => el > n) || -1;
+// const nextBigger = n =>
+//   permute((n + '').split(''))
+//     .sort((a, b) => a - b)
+//     .find(el => el > n) || -1;
 
-console.log(nextBigger(1882));
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// console.log(nextBigger(111));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const countNums = nums => nums.reduce((cur, acc) => +acc + cur, 0);
+// const countDiffer = (a, b) => a.reduce((cur, acc) => +acc + cur, 0) - b.reduce((cur, acc) => +acc + cur, 0);
+// const orderWeight = str =>
+//   str
+//     .split(' ')
+//     .map(el => el.split(''))
+//     .sort((a, b) => countDiffer(a, b))
+//     .sort((a, b) => countNums(a) === countNums(b) && +a[0] - +b[0])
+//     .join(' ')
+//     .replaceAll(',', '');
+
+// console.log(orderWeight('2000 10003 1234000 44444444 9999 11 11 22 123'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const nums = str => {
+//   let tester = true;
+//   return str
+//     .split('')
+//     .reverse()
+//     .filter(el => {
+//       if (isNaN(+el)) {
+//         tester = false;
+//         return false;
+//       }
+//       if (!isNaN(+el) && tester) return true;
+//     })
+//     .reverse()
+//     .join('');
+// };
+// const incrementString = str =>
+//   str.slice(0, str.length - nums(str).length) + (+nums(str) + 1).toString().padStart(nums(str).length, '0');
+
+// Scramblies -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function scramble(str1, str2) {
+//   const arr1 = str1.split('');
+//   return str2.split('').every(el => {
+//     const result = arr1.join('').includes(el);
+//     arr1.splice(arr1.indexOf(el), 1);
+//     return result;
+//   });
+// }
+// console.log(scramble('scriptingjava', 'javascript'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function sumIntervals(intervals) {
+//   const result = [];
+//   for (let i = 0; i < intervals.length; i++) {
+//     for (let j = intervals[i][0]; j < intervals[i][1]; j++) {
+//       result.push(j);
+//     }
+//   }
+//   return [...new Set(result)].reduce((acc, cur) => acc + 1, 0);
+// }
+
+// console.log(
+//   sumIntervals([
+//     [0, 20],
+//     [-100000000, 10],
+//     [30, 40],
+//   ])
+// );
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
