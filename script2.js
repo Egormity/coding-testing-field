@@ -199,8 +199,106 @@
 // );
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function primeFactors(n) {
+//   let dictinary = {};
+
+//   for (let i = 2; i <= Math.sqrt(n); i++) {
+//     let count = 0;
+
+//     for (let j = 1; j <= i; j++) {
+//       if ((i / j) % 1 === 0) count++;
+//     }
+
+//     if (count === 2 && (n / i) % 1 === 0) {
+//       while ((n / i) % 1 === 0) {
+//         dictinary[i] ? (dictinary[i] += 1) : (dictinary[i] = 1);
+//         n /= i;
+//       }
+//     }
+//   }
+
+//   let count = 0;
+//   for (let i = 1; i <= n; i++) {
+//     if ((n / i) % 1 === 0) count++;
+//   }
+//   if (count === 2) dictinary[n] = 1;
+
+//   let result = '';
+//   for (const num in dictinary) {
+//     result += dictinary[num] === 1 ? `(${num})` : `(${num}**${dictinary[num]})`;
+//   }
+
+//   return result;
+// }
+// console.log(primeFactors(7775460));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const refactor = str => str.replace(/[^a-z]/g, '');
+
+const createDic = str => {
+  const obj = {};
+  for (let i = 0; i < str.length; i++) {
+    !obj[str[i]] ? (obj[str[i]] = 1) : (obj[str[i]] += 1);
+  }
+  return obj;
+};
+
+const mix = (s1, s2) => {
+  s1 = refactor(s1);
+  s2 = refactor(s2);
+
+  const dic1 = createDic(s1);
+  const dic2 = createDic(s2);
+
+  const result = [];
+
+  for (const char in Object.keys(dic1).length > Object.keys(dic2).length ? dic1 : dic2) {
+    if (dic1[char] === dic2[char]) result.push('3:' + char.repeat(dic1[char]));
+    if (!dic2[char] || dic1[char] > dic2[char]) result.push('1:' + char.repeat(dic1[char]));
+    if (!dic1[char] || dic2[char] > dic1[char]) result.push('2:' + char.repeat(dic2[char]));
+  }
+
+  return result
+    .sort((a, b) => {
+      if (b.length - a.length !== 0) return b.length - a.length;
+      if (+a[0] - +b[0] !== 0) return +a[0] - +b[0];
+      return a[2].localeCompare(b[2]);
+    })
+    .filter(res => res.length > 3)
+    .join('/')
+    .replaceAll('3', '=');
+};
+
+console.log(
+  mix('Are they here', 'yes, they are here')
+  //   mix('mmmmm ', 'my frie n d Joh n has ma n y ma n y frie n ds n')
+  //   mix('1:aaa/1:nnn/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt, ', '')
+);
+
+console.log(
+  '1:aaa/1:nnn/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt' === '1:aaa/1:nnn/1:gg/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt'
+);
+
+///////// const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
+///////// function mix(s1, s2) {
+/////////   return alphabet
+/////////     .map(char => {
+/////////       const s1Count = s1.split('').filter(x => x === char).length,
+/////////             s2Count = s2.split('').filter(x => x === char).length,
+/////////             maxCount = Math.max(s1Count, s2Count);
+
+/////////       return {
+/////////         char: char,
+/////////         count: maxCount,
+/////////         src: maxCount > s1Count ? '2' : maxCount > s2Count ? '1' : '='
+/////////      };
+/////////    })
+/////////    .filter(c => c.count > 1)
+/////////    .sort((objA, objB) => objB.count - objA.count || (objA.src + objA.char > objB.src + objB.char ? 1 : -1))
+/////////     .map(c => `${c.src}:${c.char.repeat(c.count)}`)
+/////////     .join('/');
+///////// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
