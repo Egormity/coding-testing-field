@@ -233,51 +233,51 @@
 // console.log(primeFactors(7775460));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-const refactor = str => str.replace(/[^a-z]/g, '');
+// const refactor = str => str.replace(/[^a-z]/g, '');
 
-const createDic = str => {
-  const obj = {};
-  for (let i = 0; i < str.length; i++) {
-    !obj[str[i]] ? (obj[str[i]] = 1) : (obj[str[i]] += 1);
-  }
-  return obj;
-};
+// const createDic = str => {
+//   const obj = {};
+//   for (let i = 0; i < str.length; i++) {
+//     !obj[str[i]] ? (obj[str[i]] = 1) : (obj[str[i]] += 1);
+//   }
+//   return obj;
+// };
 
-const mix = (s1, s2) => {
-  s1 = refactor(s1);
-  s2 = refactor(s2);
+// const mix = (s1, s2) => {
+//   s1 = refactor(s1);
+//   s2 = refactor(s2);
 
-  const dic1 = createDic(s1);
-  const dic2 = createDic(s2);
+//   const dic1 = createDic(s1);
+//   const dic2 = createDic(s2);
 
-  const result = [];
+//   const result = [];
 
-  for (const char in Object.keys(dic1).length > Object.keys(dic2).length ? dic1 : dic2) {
-    if (dic1[char] === dic2[char]) result.push('3:' + char.repeat(dic1[char]));
-    if (!dic2[char] || dic1[char] > dic2[char]) result.push('1:' + char.repeat(dic1[char]));
-    if (!dic1[char] || dic2[char] > dic1[char]) result.push('2:' + char.repeat(dic2[char]));
-  }
+//   for (const char in Object.keys(dic1).length > Object.keys(dic2).length ? dic1 : dic2) {
+//     if (dic1[char] === dic2[char]) result.push('3:' + char.repeat(dic1[char]));
+//     if (!dic2[char] || dic1[char] > dic2[char]) result.push('1:' + char.repeat(dic1[char]));
+//     if (!dic1[char] || dic2[char] > dic1[char]) result.push('2:' + char.repeat(dic2[char]));
+//   }
 
-  return result
-    .sort((a, b) => {
-      if (b.length - a.length !== 0) return b.length - a.length;
-      if (+a[0] - +b[0] !== 0) return +a[0] - +b[0];
-      return a[2].localeCompare(b[2]);
-    })
-    .filter(res => res.length > 3)
-    .join('/')
-    .replaceAll('3', '=');
-};
+//   return result
+//     .sort((a, b) => {
+//       if (b.length - a.length !== 0) return b.length - a.length;
+//       if (+a[0] - +b[0] !== 0) return +a[0] - +b[0];
+//       return a[2].localeCompare(b[2]);
+//     })
+//     .filter(res => res.length > 3)
+//     .join('/')
+//     .replaceAll('3', '=');
+// };
 
-console.log(
-  mix('Are they here', 'yes, they are here')
-  //   mix('mmmmm ', 'my frie n d Joh n has ma n y ma n y frie n ds n')
-  //   mix('1:aaa/1:nnn/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt, ', '')
-);
+// console.log(
+//   mix('Are they here', 'yes, they are here')
+//   //   mix('mmmmm ', 'my frie n d Joh n has ma n y ma n y frie n ds n')
+//   //   mix('1:aaa/1:nnn/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt, ', '')
+// );
 
-console.log(
-  '1:aaa/1:nnn/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt' === '1:aaa/1:nnn/1:gg/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt'
-);
+// console.log(
+//   '1:aaa/1:nnn/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt' === '1:aaa/1:nnn/1:gg/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt'
+// );
 
 ///////// const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -301,8 +301,42 @@ console.log(
 ///////// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// prettier-ignore
+// const compute = ip => ip.split('.').map((el, i) => +el * 256 ** (3 - i)).reduce((cur, acc) => acc + cur, 0);
+// const ipsBetween = (start, end) => compute(end) - compute(start);
+
+// console.log(ipsBetween('1.2.3.4', '5.6.7.8'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function getCombinations(chars, len) {
+  const result = [];
+  const f = function(prefix, chars) {
+    for (let i = 0; i < chars.length; i++) {
+      const elem = [...prefix, chars[i]];
+      if(elem.length == len)
+        result.push(elem);
+      f(elem, chars.slice(i + 1));
+    }
+  }
+  f([], chars);
+  return result;
+}
+
+const chooseBestSum = (t, k, ls) => {
+  if (!ls) return null;
+
+  const closestArr = getCombinations(ls, k)
+    .join('/')
+    .split('/')
+    .map(el => el.split(',').reduce((acc, cur) => acc + +cur, 0))
+    .filter(el => el <= t);
+
+  return closestArr.length === 0
+    ? null
+    : closestArr.reduce((prev, curr) => (Math.abs(curr - t) < Math.abs(prev - t) ? curr : prev)) || null;
+};
+
+console.log(chooseBestSum(225, 3, [91, 74, 73, 85, 73, 81, 87]));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
