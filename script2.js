@@ -301,52 +301,184 @@
 ///////// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// prettier-ignore
 // const compute = ip => ip.split('.').map((el, i) => +el * 256 ** (3 - i)).reduce((cur, acc) => acc + cur, 0);
 // const ipsBetween = (start, end) => compute(end) - compute(start);
 
 // console.log(ipsBetween('1.2.3.4', '5.6.7.8'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-function getCombinations(chars, len) {
-  const result = [];
-  const f = function(prefix, chars) {
-    for (let i = 0; i < chars.length; i++) {
-      const elem = [...prefix, chars[i]];
-      if(elem.length == len)
-        result.push(elem);
-      f(elem, chars.slice(i + 1));
-    }
+// function getCombinations(chars, len) {
+//   const result = [];
+//   const f = function(prefix, chars) {
+//     for (let i = 0; i < chars.length; i++) {
+//       const elem = [...prefix, chars[i]];
+//       if(elem.length == len)
+//         result.push(elem);
+//       f(elem, chars.slice(i + 1));
+//     }
+//   }
+//   f([], chars);
+//   return result;
+// }
+
+// const chooseBestSum = (t, k, ls) => {
+//   if (!ls) return null;
+
+//   const closestArr = getCombinations(ls, k)
+//     .join('/')
+//     .split('/')
+//     .map(el => el.split(',').reduce((acc, cur) => acc + +cur, 0))
+//     .filter(el => el <= t);
+
+//   return closestArr.length === 0
+//     ? null
+//     : closestArr.reduce((prev, curr) => (Math.abs(curr - t) < Math.abs(prev - t) ? curr : prev)) || null;
+// };
+
+// console.log(chooseBestSum(225, 3, [91, 74, 73, 85, 73, 81, 87]));
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const gap = (g, m, n) => {
+//   const primals = [];
+//   for (let i = m; i < n; i++) {
+//     let counter = 0;
+//     for (let j = 2; j * j < i; j++) {
+//       if (i % j === 0) counter++;
+//       if (counter === 1) break;
+//     }
+//     if (counter === 0) primals.push(i);
+//   }
+
+//   const result = [];
+//   for (let i = 0; i < primals.length; i++) {
+//     if (primals[i + 1] - primals[i] === g) {
+//       result.push(primals[i], primals[i + 1]);
+//       break;
+//     }
+//   }
+
+//   return result.length !== 0 ? result : null;
+// };
+
+// console.log(gap(8, 300, 400));
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function alphanumeric(string) {
+//   return string.match(/[A-Za-z0-9]/g).join('') === string;
+// }
+
+// console.log(alphanumeric('asd1'));
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// var sum_pairs=function(ints, s){
+//   var seen = {}
+//   for (var i = 0; i < ints.length; ++i) {
+//     if (seen[s - ints[i]]) return [s - ints[i], ints[i]];
+//     seen[ints[i]] = true
+//   }
+// }
+
+// console.log(sumPairs([2, 1, 3, 4, 1, 0], 2));
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const isSolved = b => {
+//   const arr = [];
+//   b.forEach(row => row.forEach(el => arr.push(el)));
+
+//   if (arr[0] !== 0 && arr[0] === arr[1] && arr[0] === arr[2]) return arr[0];
+//   if (arr[3] !== 0 && arr[3] === arr[4] && arr[3] === arr[5]) return arr[3];
+//   if (arr[6] !== 0 && arr[6] === arr[7] && arr[6] === arr[8]) return arr[6];
+
+//   if (arr[0] !== 0 && arr[0] === arr[3] && arr[0] === arr[6]) return arr[0];
+//   if (arr[1] !== 0 && arr[1] === arr[4] && arr[1] === arr[7]) return arr[0];
+//   if (arr[2] !== 0 && arr[2] === arr[5] && arr[2] === arr[8]) return arr[0];
+
+//   if (arr[0] !== 0 && arr[0] === arr[4] && arr[0] === arr[8]) return arr[0];
+//   if (arr[2] !== 0 && arr[2] === arr[4] && arr[2] === arr[6]) return arr[0];
+
+//   let result = 0;
+//   arr.forEach(el => {
+//     if (el === 0) result = -1;
+//   });
+
+//   return result;
+// };
+
+// function isSolved(board) {
+//   board = board.join('-').replace(/,/g,'');
+//   if(/222|2...2...2|2....2....2|2..2..2/.test(board)) return 2;
+//   if(/111|1...1...1|1....1....1|1..1..1/.test(board)) return 1;
+//   if(/0/.test(board)) return -1;
+//   return 0;
+// }
+
+// console.log(
+//   isSolved([
+//     [1, 1, 1],
+//     [0, 2, 2],
+//     [0, 0, 0],
+//   ])
+// );
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const polyndrom = w => w === w.split('').reverse().join('');
+// console.log(polyndrom('мадам'));
+
+// const shortest = str => str.split(' ').sort((a, b) => a.length - b.length)[0];
+// console.log(shortest('Вчера мои друзья приходили ко мне'));
+
+// // prettier-ignore
+// const initials = str => str.split(' ').map(el => el[0].toUpperCase()).join('.');
+// console.log(initials('иван иванов'));
+
+// const delay = arr => {
+//   let timeout = 1;
+//   arr
+//     .filter(el => el % 1 === 0)
+//     .forEach(el => {
+//       setTimeout(() => console.log(el), timeout * 1000);
+//       timeout++;
+//     });
+//   return 'solved';
+// };
+// console.log(delay([1, 5, 1.2, 8, 6.4, 0]));
+
+(async () => {
+  try {
+    const res = await fetch('http://185.244.172.108:8081/v1/outlay-rows/entity/create', { method: 'POST' });
+    const data = await res.json();
+    const id = 1;
+
+    console.log(id);
+    await fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/create`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: 98573,
+        rowName: 'string',
+        total: 0,
+        salary: 2033,
+        mimExploitation: 0,
+        machineOperatorSalary: 0,
+        materials: 0,
+        mainCosts: 0,
+        supportCosts: 0,
+        equipmentCosts: 0,
+        overheads: 0,
+        estimatedProfit: 0,
+        child: [],
+      }),
+    });
+
+    const res2 = await fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/list`, {
+      method: 'GET',
+    });
+    const data2 = await res2.json();
+    console.log(data2);
+  } catch (err) {
+    console.log(err);
   }
-  f([], chars);
-  return result;
-}
-
-const chooseBestSum = (t, k, ls) => {
-  if (!ls) return null;
-
-  const closestArr = getCombinations(ls, k)
-    .join('/')
-    .split('/')
-    .map(el => el.split(',').reduce((acc, cur) => acc + +cur, 0))
-    .filter(el => el <= t);
-
-  return closestArr.length === 0
-    ? null
-    : closestArr.reduce((prev, curr) => (Math.abs(curr - t) < Math.abs(prev - t) ? curr : prev)) || null;
-};
-
-console.log(chooseBestSum(225, 3, [91, 74, 73, 85, 73, 81, 87]));
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+})();
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
