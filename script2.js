@@ -443,52 +443,99 @@
 // };
 // console.log(delay([1, 5, 1.2, 8, 6.4, 0]));
 
-(async () => {
-  try {
-    const res = await fetch('http://185.244.172.108:8081/v1/outlay-rows/entity/create', { method: 'POST' });
-    const data = await res.json();
-    const id = 1;
+// (async () => {
+//   try {
+//     const res = await fetch('http://185.244.172.108:8081/v1/outlay-rows/entity/create', { method: 'POST' });
+//     const data = await res.json();
+//     const id = 1;
 
-    console.log(id);
-    await fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/create`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: 98573,
-        rowName: 'string',
-        total: 0,
-        salary: 2033,
-        mimExploitation: 0,
-        machineOperatorSalary: 0,
-        materials: 0,
-        mainCosts: 0,
-        supportCosts: 0,
-        equipmentCosts: 0,
-        overheads: 0,
-        estimatedProfit: 0,
-        child: [],
-      }),
-    });
+//     console.log(id);
+//     await fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/create`, {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({
+//         id: 98573,
+//         rowName: 'string',
+//         total: 0,
+//         salary: 2033,
+//         mimExploitation: 0,
+//         machineOperatorSalary: 0,
+//         materials: 0,
+//         mainCosts: 0,
+//         supportCosts: 0,
+//         equipmentCosts: 0,
+//         overheads: 0,
+//         estimatedProfit: 0,
+//         child: [],
+//       }),
+//     });
 
-    const res2 = await fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/list`, {
-      method: 'GET',
-    });
-    const data2 = await res2.json();
-    console.log(data2);
-  } catch (err) {
-    console.log(err);
-  }
-})();
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//     const res2 = await fetch(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/list`, {
+//       method: 'GET',
+//     });
+//     const data2 = await res2.json();
+//     console.log(data2);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// })();
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const maxSequence = arr => {
+//   let max = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     let sum = 0;
+//     for (let j = i; j < arr.length; j++) {
+//       sum += arr[j];
+//       if (sum > max) max = sum;
+//     }
+//   }
+//   return max;
+// };
+
+// console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const isMerge = (s, p1, p2) =>
+//   s.split('').sort().join('') === p1.split('').concat(p2.split('')).sort().join('');
+
+// console.log(isMerge('codewars', 'code', 'wars'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const smallest = n => (n + '').split('');
+
+// console.log(smallest(261235));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// import { useEffect, useRef } from 'react';
+
+// export const ComponentA = ({ text }: { text: string }) => {
+//   const ref = useRef();
+//   const offsetTop = ref?.current?.getBoundingClientRect()?.top;
+
+//   useEffect(() => {
+//     /* Every time text OR OFFSET value changes, we log container's width to the console */
+//     if (element) {
+//       console.log(`current width of the container is: ${element.offsetWidth || 'unknown'}`);
+//     }
+//   }, [text, offsetTop]);
+
+//   return <div ref={ref}>{text}</div>;
+// };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const arr = [];
+for (var i = 0; i < 5; i++) {
+  arr.push(
+    (function () {
+      return i;
+    })()
+  );
+}
+console.log(i);
+
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
