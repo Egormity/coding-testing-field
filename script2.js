@@ -523,35 +523,162 @@
 // };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-const arr = [];
-for (var i = 0; i < 5; i++) {
-  arr.push(
-    (function () {
-      return i;
-    })()
-  );
-}
-console.log(i);
+// const arr = [];
+// for (var i = 0; i < 5; i++) {
+//   arr.push(
+//     (function () {
+//       return i;
+//     })()
+//   );
+// }
+// console.log(i);
 
-for (let i = 0; i < arr.length; i++) {
-  console.log(arr[i]);
-}
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const duplicateCount = text => {
+//   if (!text.length) return 0;
+
+//   const dic = {};
+//   for (let i = 0; i < text.length; i++) {
+//     dic[text[i]] ? (dic[text[i]] += 1) : (dic[text[i]] = 1);
+//   }
+
+//   console.log(dic);
+
+//   const maxLength = Object.entries(dic).sort((a, b) => b[1] - a[1])[0][1];
+
+//   return maxLength === 1 ? 0 : maxLength;
+// };
+// console.log(duplicateCount('Indivisibility'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function rgb(r, g, b) {
+//   const valid = val => Math.min(255, Math.max(0, val));
+//   const toHex = val => {
+//     const hex = valid(val).toString(16).toUpperCase();
+//     return hex.length === 1 ? `0${hex}` : hex;
+//   };
+//   return `${toHex(r)}${toHex(g)}${toHex(b)}`;
+// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function cakes(recipe, available) {
+//   const tester = {};
+//   for (const ing in recipe) {
+//     const availableIng = available[ing];
+//     if (!availableIng) return 0;
+//     tester[ing] = Math.floor(availableIng / recipe[ing]);
+//   }
+//   return Math.min(...Object.values(tester));
+// }
+// console.log(cakes({ flour: 500, sugar: 200, eggs: 1 }, { flour: 1200, sugar: 1200, eggs: 5, milk: 200 }));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function productFib(prod) {
+//   let result;
+//   for (let i = 0, j = 1; i * j <= prod; j += i, i = j - i) {
+//     result = [i, j, i * j === prod];
+//   }
+//   return result[2] ? result : [result[1], result[0] + result[1], false];
+// }
+// productFib(5895);
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// const values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+// const symbols = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+
+// class RomanNumerals {
+//   toRoman(num) {
+//     let romanNum = '';
+//     let i = 0;
+//     while (num > 0) {
+//       if (num >= values[i]) {
+//         while (num >= values[i]) {
+//           romanNum += symbols[i];
+//           num -= values[i];
+//         }
+//       }
+//       i++;
+//     }
+//     return romanNum;
+//   }
+
+//   fromRoman(str) {
+//     let num = 0;
+//     let i = 0;
+//     while (str.length > 0) {
+//       if (str.startsWith(symbols[i])) {
+//         while (str.startsWith(symbols[i])) {
+//           num += values[i];
+//           str = str.slice(symbols[i].length);
+//         }
+//       }
+//       i++;
+//     }
+//     return num;
+//   }
+// }
+
+// const test = new RomanNumerals();
+// console.log(test.fromRoman('XXXVIII'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function topThreeWords(text) {
+//   const wordRegex = /[a-zA-Z]+[a-zA-Z']*[a-zA-Z]+|[a-zA-Z]+/g;
+//   const words = text.toLowerCase().match(wordRegex) || [];
+//   const wordCount = {};
+
+//   for (const word of words) {
+//     wordCount[word] = (wordCount[word] || 0) + 1;
+//   }
+
+//   const sortedWords = Object.keys(wordCount).sort((a, b) => wordCount[b] - wordCount[a]);
+//   const topThree = sortedWords.slice(0, 3);
+
+//   return topThree;
+// }
+
+// console.log(topThreeWords(`The poster ran from a monster with a dresser to a jedi in the blanket `));
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function partsSums(ls) {
+//   const result = [];
+//   let sum = 0;
+//   for (let i = ls.length - 1; i >= 0; i--) {
+//     sum += ls[i];
+//     result.unshift(sum);
+//   }
+//   return result.concat([0]);
+// }
+
+// function partsSums(ls) {
+//   const result = [];
+//   let sum = 0;
+//   for (let i = ls.length - 1; i >= 0; i--) {
+//     sum += ls[i];
+//     result.unshift(sum);
+//   }
+//   return result.concat([0]);
+// }
+// function partsSums(ls) {
+//   const arr = [];
+//   ls.reduce((acc, cur, i) => arr.push(ls.slice(ls.length - i - 1)), []);
+
+//   let result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     result.push(arr[i].reduce((acc, cur) => acc + cur, 0));
+//   }
+//   return result.reverse().concat([0]);
+// }
+
+// console.log(partsSums([744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358]));
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const invert = arr => arr.reduce((acc, cur) => acc.push(-cur), []);
+console.log(invert([1, 2, 3, 4, 5]));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
