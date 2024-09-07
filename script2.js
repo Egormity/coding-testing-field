@@ -776,23 +776,26 @@
 // console.log(toWeirdCase('This is a test'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-const solution = (text, markers) =>
-  text
-    .split('\n')
-    .map(line =>
-      markers.find(marker => line.includes(marker))
-        ? line
-            .slice(0, line.indexOf(line.split('').find(letter => markers.find(marker => marker === letter))))
-            .trimEnd()
-        : line.trimEnd()
-    )
-    .join('\n');
+// const solution = (text, markers) =>
+//   text
+//     .split('\n')
+//     .map(line =>
+//       markers.find(marker => line.includes(marker))
+//         ? line
+//             .slice(0, line.indexOf(line.split('').find(letter => markers.find(marker => marker === letter))))
+//             .trimEnd()
+//         : line.trimEnd()
+//     )
+//     .join('\n');
 
-console.log(
-  solution('+rlRnRBh~@nQL@XuGc-jFJnMZ\nI CS^^x%ySKf%n%kX@zf*d', ['$', '+', '@', '%', '/', '-', '^', '#', '*'])
-);
+// console.log(
+//   solution('+rlRnRBh~@nQL@XuGc-jFJnMZ\nI CS^^x%ySKf%n%kX@zf*d', ['$', '+', '@', '%', '/', '-', '^', '#', '*'])
+// );
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function findNeedle(haystack) {
+//   return `found the needle at position ${haystack.findIndex(el => el === 'needle')}`
+// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
