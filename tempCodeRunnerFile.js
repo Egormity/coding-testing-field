@@ -1,2 +1,2 @@
-ine.indexOf(markers.find(marker => line.includes(marker)))).trimEnd()
-      // : line.trimEnd()
+-------------------------------------------------------------------
+// const paperwork = (n, m) => n < 0 || m < 0 ? 0 : n * m
