@@ -835,8 +835,28 @@
 // const plural= n => n !== 1;
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function listSquared(m, n) {
+//   const output = [];
+//   for (let i = m; i < n; i++) {
+//     let sum = 0;
+//     for (let j = 1; j <= i; j++) {
+//       if (i % j === 0) sum += j ** 2;
+//     }
+//     if (Math.sqrt(sum) % 1 === 0) output.push([i, sum]);
+//   }
+//   return output;
+// }
+// console.log(listSquared(1, 250));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function replaceRecursively(arr) {
+//   return arr.map(item => (Array.isArray(item) ? replaceRecursively(item) : 1));
+// }
+// Array.prototype.sameStructureAs = function (other) {
+//   if (!Array.isArray(other)) return false;
+//   return JSON.stringify(replaceRecursively(this)) === JSON.stringify(replaceRecursively(other));
+// };
+// console.log([[[1, 2, 3]]].sameStructureAs([[[2, 2, 3]]]));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
