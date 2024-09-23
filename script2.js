@@ -947,21 +947,26 @@
 // }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-const titleCase = (title, minorW) =>
-  title
-    .split(' ')
-    .map((w, i) =>
-      i === 0
-        ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
-        : minorW && minorW.toLowerCase().split(' ').includes(w.toLowerCase())
-        ? w.toLowerCase()
-        : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
-    )
-    .join(' ');
+// const titleCase = (title, minorW) =>
+//   title
+//     .split(' ')
+//     .map((w, i) =>
+//       i === 0
+//         ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
+//         : minorW && minorW.toLowerCase().split(' ').includes(w.toLowerCase())
+//         ? w.toLowerCase()
+//         : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
+//     )
+//     .join(' ');
 
-console.log(titleCase('First a of in', 'an often into'));
+// console.log(titleCase('First a of in', 'an often into'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const countPositivesSumNegatives = input =>
+  !input || input.length === 0
+    ? []
+    : input.reduce((acc, cur) => (cur > 0 ? [++acc[0], acc[1]] : [acc[0], acc[1] + cur]), [0, 0]);
+console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
