@@ -962,13 +962,30 @@
 // console.log(titleCase('First a of in', 'an often into'));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-const countPositivesSumNegatives = input =>
-  !input || input.length === 0
-    ? []
-    : input.reduce((acc, cur) => (cur > 0 ? [++acc[0], acc[1]] : [acc[0], acc[1] + cur]), [0, 0]);
-console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));
+// const countPositivesSumNegatives = input =>
+//   !input || input.length === 0
+//     ? []
+//     : input.reduce((acc, cur) => (cur > 0 ? [++acc[0], acc[1]] : [acc[0], acc[1] + cur]), [0, 0]);
+// console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// function cuckooClock(inputTime, chimes) {
+//   let minutes = +inputTime.split(':')[0] * 60 + Math.ceil(+inputTime.split(':')[1] / 15) * 15;
+//   let count = 0;
+
+//   while (count < chimes) {
+//     if (minutes >= 60 * 13) minutes -= 60 * 12;
+//     const hours = minutes / 60;
+
+//     if (hours % 1 === 0) count += hours;
+//     else count += 1;
+
+//     if (count < chimes) minutes += 15;
+//   }
+
+//   return `${(Math.floor(minutes / 60) + '').padStart(2, '0')}:${((minutes % 60) + '').padEnd(2, '0')}`;
+// }
+// console.log(cuckooClock('12:00', 20));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
