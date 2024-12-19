@@ -136,21 +136,65 @@
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // 2024.12.17 - currying add
-function add(n) {
-    var fn = function (x) {
-        return add(n + x);
-    };
+// function add(n) {
+//     var fn = function (x) {
+//         return add(n + x);
+//     };
 
-    fn.valueOf = function () {
-        return n;
-    };
+//     fn.valueOf = function () {
+//         return n;
+//     };
 
-    return fn;
-}
-
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//     return fn;
+// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// 2024.12.18 - good fibonacci
+// function fibonacci(n) {
+//     const arr = [0, 1, 1];
+//     if (n < arr.length) return arr[n];
+
+//     for (let i = 3; i <= n; i++) {
+//         arr.push(arr[i - 2] + arr[i - 1]);
+//     }
+
+//     return arr.at(-1);
+// }
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// We want to generate all the numbers of three digits where:
+
+// the sum of their digits is equal to 10
+// their digits are in increasing order (the numbers may have two or more equal contiguous digits)
+// The numbers that fulfill these constraints are: [118, 127, 136, 145, 226, 235, 244, 334]. There're 8 numbers in total with 118 being the lowest and 334 being the greatest.
+// function findAll(sum, n) {
+//     const numArr = Array.from({ length: n }, () => 1);
+//     const resultArr = numArr.reduce((acc, cur) => acc + +cur, 0) === sum ? [+num] : [];
+//     let index = n - 1;
+
+//     while (true) {
+//         if (numArr[index] < 9) numArr[index]++;
+//         else {
+//             let min;
+//             for (let i = 0; i < numArr.length; i++) {
+//                 if (min) numArr[i] = min + 1;
+//                 else if (numArr[i + 1] === 9) {
+//                     if (!min) min = numArr[i];
+//                     numArr[i]++;
+//                 }
+//             }
+//             index = n - 1;
+//         }
+
+//         if (numArr.reduce((acc, cur) => acc + cur, 0) === sum) resultArr.push(+numArr.join(""));
+//         if (numArr.some((el) => el > 9) || numArr.every((el) => el === 9)) break;
+//     }
+
+//     return resultArr.length <= 0
+//         ? []
+//         : [resultArr.length, resultArr[0] + "", resultArr[resultArr.length - 1] + ""];
+// }
+// console.log(findAll(10, 3));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
