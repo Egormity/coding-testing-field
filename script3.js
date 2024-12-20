@@ -169,7 +169,7 @@
 // The numbers that fulfill these constraints are: [118, 127, 136, 145, 226, 235, 244, 334]. There're 8 numbers in total with 118 being the lowest and 334 being the greatest.
 // function findAll(sum, n) {
 //     const numArr = Array.from({ length: n }, () => 1);
-//     const resultArr = numArr.reduce((acc, cur) => acc + +cur, 0) === sum ? [+num] : [];
+//     const resultArr = numArr.reduce((acc, cur) => acc + cur, 0) === sum ? [+numArr.join("")] : [];
 //     let index = n - 1;
 
 //     while (true) {
@@ -197,6 +197,33 @@
 // console.log(findAll(10, 3));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// Oh no, our Math object was "accidently" reset. Can you re-implement some of those functions? We can assure, that only non-negative numbers are passed as arguments. So you don't have to consider things like undefined, null, NaN, negative numbers, strings and so on.
+
+// Here is a list of functions, we need:
+
+// Math.round()
+// Math.ceil()
+// Math.floor()
+// `;
+// Math.round = function (num) {
+//     const strNum = num + "";
+//     if (!strNum.includes(".")) return num;
+//     const notRounded = +strNum.slice(0, strNum.indexOf("."));
+//     return +strNum[strNum.indexOf(".") + 1] >= 5 ? notRounded + 1 : notRounded;
+// };
+
+// Math.ceil = function (num) {
+//     const strNum = num + "";
+//     if (!strNum.includes(".")) return num;
+//     return +strNum.slice(0, strNum.indexOf(".")) + 1;
+// };
+
+// Math.floor = function (num) {
+//     const strNum = num + "";
+//     if (!strNum.includes(".")) return num;
+//     return +strNum.slice(0, strNum.indexOf("."));
+// };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
