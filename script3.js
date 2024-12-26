@@ -256,7 +256,7 @@
 // }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-`
+// `
 // Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
 
 // Note: no empty arrays will be given.
@@ -275,7 +275,7 @@
 // console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12]));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-`
+// `
 // A perfect power is a classification of positive integers:
 
 // In mathematics, a perfect power is a positive integer that can be expressed as an integer power of another positive integer. More formally, n is a perfect power if there exist natural numbers m > 1, and k > 1 such that mk = n.
@@ -292,8 +292,77 @@
 // console.log(isPP(43894));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// In this kata you have to write a method that folds a given array of integers by the middle x-times.
+
+// An example says more than thousand words:
+
+// Fold 1-times:
+// [1,2,3,4,5] -> [6,6,3]
+
+// A little visualization (NOT for the algorithm but for the idea of folding):
+
+//  Step 1         Step 2        Step 3       Step 4       Step5
+//                      5/           5|         5\
+//                     4/            4|          4\
+// 1 2 3 4 5      1 2 3/         1 2 3|       1 2 3\       6 6 3
+// ----*----      ----*          ----*        ----*        ----*
+
+// Fold 2-times:
+// [1,2,3,4,5] -> [9,6]
+// As you see, if the count of numbers is odd, the middle number will stay. Otherwise the fold-point is between the middle-numbers, so all numbers would be added in a way.
+
+// The array will always contain numbers and will never be null. The parameter runs will always be a positive integer greater than 0 and says how many runs of folding your method has to do.
+
+// If an array with one element is folded, it stays as the same array.
+
+// The input array should not be modified!
+
+// Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+// I have created other katas. Have a look if you like coding and challenges.
+// `
+// function foldArray(array, runs) {
+//     let result = array;
+//     for (let i = 0; i < runs; i++) {
+//         let newResult = [];
+//         for (let j = 0; j < Math.floor(result.length / 2); j++) {
+//             newResult.push(result[j] + result[result.length - 1 - j]);
+//         }
+//         if (result.length % 2 !== 0 && result.length !== 0)
+//             newResult.push(result[Math.floor(result.length / 2)]);
+//         result = newResult;
+//     }
+//     return result;
+// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// Teemo is not really excited about the new year's eve, but he has to celebrate it with his friends anyway.
+
+// He has a really big passion about programming and he wants to be productive till midnight. He wants to know how many minutes he has left to work on his new project.
+// He doesn't want to look on the clock all the time, so he thought about a function, which returns him the number of minutes.
+
+// Can you write him a function, so he can stay productive?
+
+// The function minutesToMidnight(d) will take a date object as parameter. Return the number of minutes in the following format:
+
+// "x minute(s)"
+
+// You will always get a date object with of today with a random timestamp.
+// You have to round the number of minutes.
+// Milliseconds doesn't matter!
+
+// Some examples:
+
+// 10.00 am => "840 minutes"
+
+// 23.59 pm => "1 minute"
+// `
+// function minutesToMidnight(d) {
+//     const num = 1440 - d.getHours() * 60 - d.getMinutes() - Math.round(d.getSeconds() / 60);
+//     return `${num} minute${num === 1 ? "" : "s"}`;
+// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
