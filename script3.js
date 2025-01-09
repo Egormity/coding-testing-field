@@ -530,6 +530,24 @@
 // console.log(sumStrings("123", "2222"));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// We need to sum big numbers and we require your help.
+
+// Write a function that returns the sum of two numbers. The input numbers are strings and the function must return a string.
+// `
+// function add(a, b) {
+//     let carry = 0;
+//     const result = [];
+//     const aReversed = a.split("").reverse().join("");
+//     const bReversed = b.split("").reverse().join("");
+//     for (let i = 0; i < Math.max(a.length, b.length); i++) {
+//         const sum = (+aReversed[i] || 0) + (+bReversed[i] || 0) + carry;
+//         carry = Math.floor(sum / 10);
+//         result.push(sum % 10);
+//     }
+//     if (carry !== 0) result.push(carry);
+//     return result.reverse().join("");
+// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
