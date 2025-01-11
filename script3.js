@@ -556,61 +556,65 @@
 // };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-class ListNode {
-    constructor(val, next) {
-        this.val = val === undefined ? 0 : val;
-        this.next = next === undefined ? null : next;
-    }
-}
+// class ListNode {
+//     constructor(val, next) {
+//         this.val = val === undefined ? 0 : val;
+//         this.next = next === undefined ? null : next;
+//     }
+// }
 
-var mergeTwoLists = function (list1, list2) {
-    if (!list1) return list2;
-    if (!list2) return list1;
+// var mergeTwoLists = function (list1, list2) {
+//     if (!list1) return list2;
+//     if (!list2) return list1;
 
-    const result = new ListNode(null, null);
+//     const result = new ListNode(null, null);
 
-    if (list1.val < list2.val) {
-        result.val = list1.val;
-        list1 = list1.next;
-    } else {
-        result.val = list2.val;
-        list2 = list2.next;
-    }
+//     if (list1.val < list2.val) {
+//         result.val = list1.val;
+//         list1 = list1.next;
+//     } else {
+//         result.val = list2.val;
+//         list2 = list2.next;
+//     }
 
-    let cur = result;
-    while (list1?.val || list1?.val === 0 || list2?.val || list2?.val === 0) {
-        if (!list2 || list1?.val <= list2?.val) {
-            cur.next = new ListNode(list1.val);
-            list1 = list1.next;
-        } else {
-            cur.next = new ListNode(list2.val);
-            list2 = list2.next;
-        }
-        cur = cur.next;
-    }
-    return JSON.stringify(result);
-};
+//     let cur = result;
+//     while (list1?.val || list1?.val === 0 || list2?.val || list2?.val === 0) {
+//         if (!list2 || list1?.val <= list2?.val) {
+//             cur.next = new ListNode(list1.val);
+//             list1 = list1.next;
+//         } else {
+//             cur.next = new ListNode(list2.val);
+//             list2 = list2.next;
+//         }
+//         cur = cur.next;
+//     }
+//     return JSON.stringify(result);
+// };
 
-const head1 = new ListNode(-10);
-head1.next = new ListNode(-9);
-head1.next.next = new ListNode(-6);
-head1.next.next.next = new ListNode(-4);
-head1.next.next.next.next = new ListNode(1);
-head1.next.next.next.next.next = new ListNode(9);
-head1.next.next.next.next.next.next = new ListNode(9);
+// const head1 = new ListNode(-10);
+// head1.next = new ListNode(-9);
+// head1.next.next = new ListNode(-6);
+// head1.next.next.next = new ListNode(-4);
+// head1.next.next.next.next = new ListNode(1);
+// head1.next.next.next.next.next = new ListNode(9);
+// head1.next.next.next.next.next.next = new ListNode(9);
 
-const head2 = new ListNode(-5);
-head2.next = new ListNode(-3);
-head2.next.next = new ListNode(0);
-head2.next.next.next = new ListNode(7);
-head2.next.next.next.next = new ListNode(8);
-head2.next.next.next.next.next = new ListNode(8);
-head2.next.next.next.next.next.next = new ListNode(10);
-head2.next.next.next.next.next.next.next = new ListNode(11);
+// const head2 = new ListNode(-5);
+// head2.next = new ListNode(-3);
+// head2.next.next = new ListNode(0);
+// head2.next.next.next = new ListNode(7);
+// head2.next.next.next.next = new ListNode(8);
+// head2.next.next.next.next.next = new ListNode(8);
+// head2.next.next.next.next.next.next = new ListNode(10);
+// head2.next.next.next.next.next.next.next = new ListNode(11);
 
-console.log(mergeTwoLists(head1, head2));
+// console.log(mergeTwoLists(head1, head2));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `Return the type of the sum of the two arguments`
+// function typeOfSum(a, b) {
+//     return typeof (a + b);
+// }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
