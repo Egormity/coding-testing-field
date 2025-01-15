@@ -688,25 +688,25 @@
 // };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-/**
- * @param {string} str
- * @return {boolean}
- */
-var isValid = function (str) {
-    const stack = [];
-    const dic = { ")": "(", "]": "[", "}": "{" };
+// /**
+//  * @param {string} str
+//  * @return {boolean}
+//  */
+// var isValid = function (str) {
+//     const stack = [];
+//     const dic = { ")": "(", "]": "[", "}": "{" };
 
-    for (let i = 0; i < str.length; i++) {
-        const char = str[i];
-        if (char in dic) {
-            if (stack.length !== 0 && stack.at(-1) === dic[char]) stack.pop();
-            else return false;
-        } else stack.push(char);
-    }
+//     for (let i = 0; i < str.length; i++) {
+//         const char = str[i];
+//         if (char in dic) {
+//             if (stack.length !== 0 && stack.at(-1) === dic[char]) stack.pop();
+//             else return false;
+//         } else stack.push(char);
+//     }
 
-    return stack.length === 0;
-};
-console.log(isValid("]"));
+//     return stack.length === 0;
+// };
+// console.log(isValid("]"));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
