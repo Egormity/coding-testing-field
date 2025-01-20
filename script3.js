@@ -814,8 +814,46 @@
 // }
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// Given a string s consisting of words and spaces, return the length of the last word in the string.
+
+// A word is a maximal
+// substring
+//  consisting of non-space characters only.
+// `
+// /**
+//  * @param {string} s
+//  * @return {number}
+//  */
+// var lengthOfLastWord = function (s) {
+//     return s.trim().split(" ").at(-1).length;
+// };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+// Increment the large integer by one and return the resulting array of digits.
+// `;
+// /**
+//  * @param {number[]} digits
+//  * @return {number[]}
+//  */
+// var plusOne = function (digits) {
+//     if (digits.at(-1) !== 9) return [...digits.slice(0, -1), digits.at(-1) + 1];
+
+//     let i = digits.length - 1;
+
+//     while (digits[i] === 9) {
+//         digits[i] = 0;
+//         i--;
+//     }
+
+//     if (i >= 0) digits[i] += 1;
+//     else digits.unshift(1);
+
+//     return digits;
+// };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
