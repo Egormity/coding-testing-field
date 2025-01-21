@@ -856,6 +856,64 @@
 // };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// Given two binary strings a and b, return their sum as a binary string.
+// `
+// /**
+//  * @param {string} a
+//  * @param {string} b
+//  * @return {string}
+//  */
+// var addBinary = function (a, b) {
+//     let carry = 0;
+//     let i = 0;
+//     let result = "";
+
+//     let aNum = a[a.length - 1 - i];
+//     let bNum = b[b.length - 1 - i];
+
+//     const c = (num) => {
+//         if (num === "1") return true;
+//         return false;
+//     };
+
+//     while (!!aNum || !!bNum) {
+//         let newNum = "";
+
+//         if (c(aNum) && c(bNum)) {
+//             if (carry) {
+//                 newNum = "1";
+//             } else {
+//                 newNum = "0";
+//                 carry += 1;
+//             }
+//         } else if ((c(aNum) && !c(bNum)) || (!c(aNum) && c(bNum))) {
+//             if (carry) {
+//                 newNum = "0";
+//             } else {
+//                 newNum = "1";
+//             }
+//         } else {
+//             if (carry) {
+//                 newNum = "1";
+//                 carry -= 1;
+//             } else {
+//                 newNum = "0";
+//             }
+//         }
+
+//         result = newNum + result;
+
+//         i += 1;
+//         aNum = a[a.length - 1 - i];
+//         bNum = b[b.length - 1 - i];
+//     }
+
+//     if (carry) result = "1" + result;
+
+//     return result;
+// };
+// console.log(addBinary("11", "1"));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
