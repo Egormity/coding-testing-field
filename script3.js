@@ -946,10 +946,73 @@
 // };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+// `
+
+// function ListNode(val, next) {
+//     this.val = val === undefined ? 0 : val;
+//     this.next = next === undefined ? null : next;
+// }
+
+// /**
+//  * @param {ListNode} head
+//  * @return {ListNode}
+//  */
+
+// var deleteDuplicates = function (head) {
+//     let curNode = head;
+//     while (curNode) {
+//         if (curNode.val === curNode.next?.val) {
+//             curNode.next = curNode.next.next;
+//         } else {
+//             curNode = curNode.next;
+//         }
+//     }
+//     return head;
+// };
+
+// console.log(deleteDuplicates(new ListNode(8, new ListNode(8, new ListNode(8, new ListNode(8, null))))));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
+// `
+// /**
+//  * @param {number[]} nums1
+//  * @param {number} m
+//  * @param {number[]} nums2
+//  * @param {number} n
+//  * @return {void} Do not return anything, modify nums1 in-place instead.
+//  */
+// var merge = function (nums1, m, nums2, n) {
+//     [...nums1.slice(0, m), ...nums2.slice(0, n)].sort((a, b) => a - b).forEach((el, i) => (nums1[i] = el));
+// };
+
+// const arr1 = [-1, 0, 1, 1, 0, 0, 0, 0, 0];
+// const arr2 = [-1, 0, 2, 2, 3];
+// merge(arr1, 4, arr2, 5);
+// console.log(arr1);
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {boolean}
+ */
+var isSameTree = function (p, q) {
+    // return JSON.stringify(p) === JSON.stringify(q);
+    if (!p || !q) return p === q;
+    return p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+};
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
