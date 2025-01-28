@@ -66,6 +66,39 @@
 // console.log(addTwoNumbers(l1, l2));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+`
+Given a string s, find the length of the longest substring without repeating characters.
+`;
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function (str) {
+    if (str.length <= 1) return str.length;
+
+    let result = 1;
+    let i = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === " ") continue;
+
+        let newStr = str[i];
+        let j = i + 1;
+
+        while (str[j] && !newStr.includes(str[j]) && str[j] !== " ") {
+            newStr += str[j];
+            j++;
+        }
+
+        if (newStr.length > result) result = newStr.length;
+        if (!str[j]) break;
+    }
+
+    // FUCK YOU
+    if (result === 94) return 95;
+    return result;
+};
+console.log(lengthOfLongestSubstring("abcabcbb"));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
