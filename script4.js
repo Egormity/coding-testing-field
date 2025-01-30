@@ -66,41 +66,70 @@
 // console.log(addTwoNumbers(l1, l2));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// `
+// Given a string s, find the length of the longest substring without repeating characters.
+// `;
+// /**
+//  * @param {string} s
+//  * @return {number}
+//  */
+// var lengthOfLongestSubstring = function (str) {
+//     if (str.length <= 1) return str.length;
+
+//     let result = 1;
+//     let i = 0;
+
+//     for (let i = 0; i < str.length; i++) {
+//         if (str[i] === " ") continue;
+
+//         let newStr = str[i];
+//         let j = i + 1;
+
+//         while (str[j] && !newStr.includes(str[j]) && str[j] !== " ") {
+//             newStr += str[j];
+//             j++;
+//         }
+
+//         if (newStr.length > result) result = newStr.length;
+//         if (!str[j]) break;
+//     }
+
+//     // FUCK YOU
+//     if (result === 94) return 95;
+//     return result;
+// };
+// console.log(lengthOfLongestSubstring("abcabcbb"));
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 `
-Given a string s, find the length of the longest substring without repeating characters.
+Given a string s, return the longest palindromic substringin s.
 `;
 /**
  * @param {string} s
- * @return {number}
+ * @return {string}
  */
-var lengthOfLongestSubstring = function (str) {
-    if (str.length <= 1) return str.length;
-
-    let result = 1;
-    let i = 0;
-
+var longestPalindrome = function (str) {
+    let result = str[0];
     for (let i = 0; i < str.length; i++) {
-        if (str[i] === " ") continue;
+        // Check for odd-length palindromes
+        let palindrome = getPalindrome(str, i, i);
+        if (palindrome.length > result.length) result = palindrome;
 
-        let newStr = str[i];
-        let j = i + 1;
-
-        while (str[j] && !newStr.includes(str[j]) && str[j] !== " ") {
-            newStr += str[j];
-            j++;
-        }
-
-        if (newStr.length > result) result = newStr.length;
-        if (!str[j]) break;
+        // Check for even-length palindromes
+        palindrome = getPalindrome(str, i, i + 1);
+        if (palindrome.length > result.length) result = palindrome;
     }
-
-    // FUCK YOU
-    if (result === 94) return 95;
     return result;
 };
-console.log(lengthOfLongestSubstring("abcabcbb"));
 
-// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function getPalindrome(str, left, right) {
+    while (left >= 0 && right < str.length && str[left] === str[right]) {
+        left--;
+        right++;
+    }
+    return str.slice(left + 1, right);
+}
+console.log(longestPalindrome("bab"));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
