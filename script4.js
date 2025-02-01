@@ -3,7 +3,6 @@
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // `
 // You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
-
 // You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 // `
 
@@ -101,37 +100,64 @@
 // console.log(lengthOfLongestSubstring("abcabcbb"));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-`
-Given a string s, return the longest palindromic substringin s.
-`;
-/**
- * @param {string} s
- * @return {string}
- */
-var longestPalindrome = function (str) {
-    let result = str[0];
-    for (let i = 0; i < str.length; i++) {
-        // Check for odd-length palindromes
-        let palindrome = getPalindrome(str, i, i);
-        if (palindrome.length > result.length) result = palindrome;
+// `
+// Given a string s, return the longest palindromic substringin s.
+// `;
+// /**
+//  * @param {string} s
+//  * @return {string}
+//  */
+// var longestPalindrome = function (str) {
+//     let result = str[0];
+//     for (let i = 0; i < str.length; i++) {
+//         // Check for odd-length palindromes
+//         let palindrome = getPalindrome(str, i, i);
+//         if (palindrome.length > result.length) result = palindrome;
 
-        // Check for even-length palindromes
-        palindrome = getPalindrome(str, i, i + 1);
-        if (palindrome.length > result.length) result = palindrome;
-    }
-    return result;
-};
+//         // Check for even-length palindromes
+//         palindrome = getPalindrome(str, i, i + 1);
+//         if (palindrome.length > result.length) result = palindrome;
+//     }
+//     return result;
+// };
 
-function getPalindrome(str, left, right) {
-    while (left >= 0 && right < str.length && str[left] === str[right]) {
-        left--;
-        right++;
-    }
-    return str.slice(left + 1, right);
-}
-console.log(longestPalindrome("bab"));
+// function getPalindrome(str, left, right) {
+//     while (left >= 0 && right < str.length && str[left] === str[right]) {
+//         left--;
+//         right++;
+//     }
+//     return str.slice(left + 1, right);
+// }
+// console.log(longestPalindrome("bab"));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+`
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+`;
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var reverse = function (num) {
+    const res = Number.parseInt((num < 0 ? "-" : "") + (Math.abs(num) + "").split("").reverse().join(""));
+    if ((-2) ** 31 <= res && res <= 2 ** 31 - 1) return res;
+    return 0;
+};
+// var reverse = function(x) {
+//     isNegative = x < 0;
+//     if (isNegative) x = Math.abs(x);
+
+//     let res = 0;
+//     while (x > 0) {
+//         res = (res * 10) + (x % 10);
+//         x = Math.floor(x / 10);
+//     }
+
+//     if ((-2) ** 31 > res || res > 2 ** 31 - 1) return 0;
+
+//     return isNegative ? -res : res;
+// };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
