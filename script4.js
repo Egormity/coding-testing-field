@@ -160,6 +160,59 @@ var reverse = function (num) {
 // };
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// class TreeNode {
+//     constructor(val, left, right) {
+//         this.val = val === undefined ? 0 : val;
+//         this.left = left === undefined ? null : lef;
+//         this.right = right === undefined ? null : right;
+//     }
+// }
+// /**
+//  * Definition for a binary tree node.
+//  * function TreeNode(val, left, right) {
+//  *     this.val = (val === undefined ? 0 : val)
+//  *     this.left = (left === undefined ? null : left)
+//  *     this.right = (right === undefined ? null : right)
+//  * }
+//  */
+// /**
+//  * @param {TreeNode} root
+//  * @return {boolean}
+//  */
+// var isSymmetric = function (root) {
+//     if (!root || (!root.left && !root.right)) return true;
+
+//     const help = (node, arr) => (node?.val || node.val === 0 ? arr.push(node.val) : arr.push(null));
+//     const constructArr = (node, arr, isLeft) => {
+//         if (!node) return;
+//         if (isLeft) {
+//             help(node.left, arr);
+//             help(node.right, arr);
+//             if (node.left) constructArr(node.left, arr, isLeft);
+//             if (node.right) constructArr(node.right, arr, isLeft);
+//         } else {
+//             help(node.right, arr);
+//             help(node.left, arr);
+//             if (node.right) constructArr(node.right, arr, isLeft);
+//             if (node.left) constructArr(node.left, arr, isLeft);
+//         }
+//     };
+
+//     const arr1 = [root?.left?.val];
+//     constructArr(root?.left, arr1, true);
+
+//     const arr2 = [root?.right?.val];
+//     constructArr(root?.right, arr2, false);
+
+//     console.log(arr1, arr2);
+//     if (arr1.length !== arr2.length) return false;
+//     for (let i = 0; i < arr1.length; i++) {
+//         if (arr1[i] !== arr2[i]) return false;
+//     }
+//     return true;
+// };
+
+// console.log(isSymmetric(root));
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
